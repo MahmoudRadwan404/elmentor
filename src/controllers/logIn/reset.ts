@@ -18,6 +18,7 @@ export default async function reset(request: Request, res: Response) {
   if (!user) {
     return res.status(404).send({ error: "email not found" });
   }
+  
   const newPassword = await hash(password);
   await usersCollection.updateOne(
     { email: email },
