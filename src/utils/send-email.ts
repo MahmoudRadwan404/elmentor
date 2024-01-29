@@ -13,7 +13,7 @@ export async function forgetEmail(userEmail: any, subject: any) {
       from: "elmentor404@gmail.com", //sender from .env
       to: userEmail,
       subject: "Auth code",
-      text: `<h1> ${subject} </h1>`,
+      html: `<h1> Your authentication code is : ${subject} </h1>`,
     };
     const info = await transporter.sendMail(mailOptions);
     console.log("info response = " + info.response);
