@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import handle from "../../core/request-class";
 import { collection } from "../../models/connection";
 import { ObjectId } from "mongodb";
-import verifyAdmin from "../../validation/admin/verify-admin-or-user-reviews";
+import verifyAdmin from "../../validation/admin/verify-admin-or-reviewer";
 
 export default async function deleteReview(request: any, response: Response) {
   const requestHandler = handle(request);

@@ -11,7 +11,7 @@ const router = express.Router();
 router.get("/listStudents", listStudents);
 router.get("/listStudent/:id", listStudent);
 router.post("/addStudent", addStudent);
-router.delete("/removeStudent/:id",[verifyToken], deleteStudent);//admin only or student it self
-router.patch("/updateStudent/:id", [verifyToken],updateStudent);//admin or student itself
+router.delete("/removeStudent/:id", [verifyToken], deleteStudent); //i put only important middlewares and others are made but in there folders.
+router.patch("/updateStudent/:id", [verifyToken], updateStudent); //i put only important middlewares and others are made but in there folders
 
 export default router;

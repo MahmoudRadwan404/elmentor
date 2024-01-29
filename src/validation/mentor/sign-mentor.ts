@@ -3,6 +3,7 @@ import hash from "../../utils/hashing-pssword";
 import path from "path";
 import urlImage from "../../controllers/students/urlImage";
 import fs from "fs";
+
 export default async function validation(requestHandeler: any, request: any) {
   const mentorsCollection = collection("users");
 
