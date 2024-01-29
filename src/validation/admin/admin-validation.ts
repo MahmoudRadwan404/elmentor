@@ -20,7 +20,7 @@ export default async function adminValidation(requestHandler: any) {
   } else {
     const finalPass = await hash(password);
      await users.insertOne({
-      name,
+      userName:name,
       email,
       password: finalPass,
       isAdmin,

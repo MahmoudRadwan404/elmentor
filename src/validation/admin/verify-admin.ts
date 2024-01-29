@@ -11,8 +11,9 @@ export default async function verifyAdmin(
   const users = collection("users");
   const foundAdmin = await users.findOne({ _id: new ObjectId(admin._id) });
 
-  if (!foundAdmin?.isAdmin) {
+  if (foundAdmin?.isAdmin) {
+    next();
+  } else {
     return response.send({ message: "access not valid" });
   }
-  next();
 }

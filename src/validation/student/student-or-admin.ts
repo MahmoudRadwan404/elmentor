@@ -14,9 +14,14 @@ export default async function verifyAdminOrStudent(
   const student = request.user;
   const users = collection("users");
   const foundAdmin = await users.findOne({ _id: new ObjectId(admin._id) });
-
-  if (!foundAdmin?.isAdmin || !(student._id.toString() == id.toString())) {
-    return response.send({ message: "access not valid" });
+  if (foundAdmin?.isAdmin) {
+    next();
+  } else if (student._id.toString() == id.toString()) {
+    next();
+  } else {
+    return response.status(200).send({
+      message: "access not valid",
+    });
   }
-  next();
+  //next();
 }

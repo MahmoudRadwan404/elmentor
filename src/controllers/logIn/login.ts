@@ -27,7 +27,6 @@ export default async function login(request: any, reply: Response) {
     _id:user._id,
     userName: user.userName,
     email: user.email,
-    name: user.userName,
   };
   const token = await newAccessToken({ email }, secretKey, {
     expiresIn: "10d",

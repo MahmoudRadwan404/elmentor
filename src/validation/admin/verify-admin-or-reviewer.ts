@@ -21,11 +21,11 @@ export default async function verifyAdminOrReviewer(
     _id: new ObjectId(reviewId),
   });
 
-  if (
-    !foundAdmin?.isAdmin ||
-    !(review.reviewerId.toString() == user._id.toString())
-  ) {
+  if (foundAdmin?.isAdmin) {
+    next();
+  } else if (review.reviewerId.toString() == user._id.toString()) {
+    next();
+  } else {
     return response.send({ message: "access not valid" });
   }
-  next();
 }

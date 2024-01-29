@@ -13,7 +13,7 @@ export default async function studentReview(request: any, response: Response,nex
     _id: new ObjectId(reviewId),
   });
   if (review.reviewerId.toString() !== user._id.toString()) {
-    response.status(200).send({ msg: "Not valid" });
+    return response.status(200).send({ msg: "Not valid" });
   }
   next()
 }

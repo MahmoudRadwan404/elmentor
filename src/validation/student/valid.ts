@@ -18,7 +18,7 @@ export default async function valid(request: any) {
     /^[a-zA-Z0-9.!#$%^&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9]+)*$/;
 
   let image: any = request?.files?.image?.data;
-  console.log(request?.files?.image?.data);//******** */
+  console.log(request?.files?.image?.data); //******** */
   const imageName = Math.random().toString(36).substring(2, 7);
   let myPath: string | null = path.normalize(
     __dirname + `../../../../storage/uploads/${imageName}.png`
@@ -52,9 +52,10 @@ export default async function valid(request: any) {
     await studentsCollection.insertOne({
       userName,
       email,
-      imageLink:imageUrl,
-      imageName:baseName,
+      imageLink: imageUrl,
+      imageName: baseName,
       password: finalPass,
+      student: true,
     });
     return true;
   }

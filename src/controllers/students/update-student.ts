@@ -8,13 +8,13 @@ export async function updateStudent(request: Request, response: Response) {
   const studentsCollection = collection("users");
   const studentId = requestHandeler.input("id");
   try {
-    const updatedMentor = await studentsCollection.updateOne(
+    const updatedStudent = await studentsCollection.updateOne(
       {
         _id: new ObjectId(studentId),
       },
       { $set: request.body }
     );
-    response.status(200).send({ updateStudent });
+    response.status(200).send({ updatedStudent });
   } catch (err) {
     console.log("Error from update-student controller");
     response.status(500).send("Error updating student");

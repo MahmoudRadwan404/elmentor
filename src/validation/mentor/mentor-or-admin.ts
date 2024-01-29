@@ -19,12 +19,12 @@ export default async function verifyAdminOrMentor(
   /*console.log("adminid=" + foundAdmin?._id + "  ");
   console.log("mentrid=" + mentor._id);
   console.log(mentor._id=== mentorId)*/
-  console.log(mentor._id.equals(mentorId));///if you would like to know why if is empty uncomment these console log.
+  console.log(mentor._id.equals(mentorId)); ///if you would like to know why if is empty uncomment these console log.
   if (foundAdmin?.isAdmin) {
-  
-  } 
-  else if (!isEqual(mentor._id, mentorId)) {
+    next();
+  } else if (mentor._id == mentorId) {
+    next();
+  } else {
     return response.send({ message: "access not valid" });
   }
-  next();
 }
