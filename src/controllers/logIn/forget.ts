@@ -1,5 +1,3 @@
-//not done because i dont know if we should use nodemailer or another service
-
 import handle from "../../core/request-class";
 import { collection } from "../../models/connection";
 import { Request, Response } from "express";
