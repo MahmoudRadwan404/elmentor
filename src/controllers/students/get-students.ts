@@ -7,7 +7,7 @@ export async function listStudents(request: Request, response: Response) {
   const requestHandeler = handle(request);
   const studentsCollection = collection("users");
   try {
-    const students = await studentsCollection.find({student:true}).toArray();
+    const students = await studentsCollection.find({ student: true }).toArray();
     response.status(200).send({ students });
   } catch (err) {
     console.log("Error from list-students controller");
