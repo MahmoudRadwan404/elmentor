@@ -1,10 +1,13 @@
 // or as an es module:
 import { MongoClient, Db } from "mongodb";
-import { url } from "../../config";
-import dotenv from "dotenv";
+//import { url } from "../../config";
+import * as dotenv from "dotenv";
 dotenv.config();
 // Connection URL
-const client = new MongoClient(url);
+const mongoUrl = process.env.url ? process.env.url : "";
+
+const client = new MongoClient(mongoUrl);
+
 // Database Name
 const dbName = "admin";
 // Use connect method to connect to the server

@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import { collection } from "../../models/connection";
 import handle from "../../core/request-class";
 import { Response } from "express";
-import { secretKey } from "../../../config";
+//import { secretKey } from "../../../config";
 import newAccessToken from "../../utils/generate-access-token";
 import verifyPassword from "../../validation/users/verify-password";
 import { loginValidation } from "../../validation/users/logIn-validation";
@@ -12,6 +12,7 @@ export default async function login(request: any, reply: Response) {
   const usersCollection = collection("users");
   const { email, password } = requestHandler.only(["email", "password"]);
   console.log(email, password);
+  const secretKey = process.env.SECRETKEY ? process.env.SECRETKEY : "";
   if (!loginValidation(email, password)) {
     return reply.send({ error: "email and password are both required" });
   }
@@ -24,7 +25,7 @@ export default async function login(request: any, reply: Response) {
     });
   }
   const finalUser = {
-    _id:user._id,
+    _id: user._id,
     userName: user.userName,
     email: user.email,
   };
