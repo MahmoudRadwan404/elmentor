@@ -11,7 +11,7 @@ const router = express.Router();
 //routes
 router.get("/listMentors", listMentors);
 router.get("/listMentor/:id", listMentor);
-router.post("/addMentor", addMentor);
+router.post("/mentor/signup", addMentor);
 router.delete(
   "/deleteMentor/:id",
   [verifyToken],

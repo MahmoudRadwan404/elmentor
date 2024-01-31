@@ -31,7 +31,7 @@ export default async function verifyToken(req: any, res: Response, next: any) {
     }
 
     const user = await users.findOne({ _id: found.id });
-    req.user = user;
+    req.user = user;//
   } catch (err) {
     res.status(500).send({ error: "Error verifying token" });
   }

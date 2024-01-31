@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/listStudents", [verifyToken], listStudents);
 router.get("/listStudent/:id", listStudent);
-router.post("/addStudent", addStudent);
+router.post("/student/signup", addStudent);
 router.delete(
   "/removeStudent/:id",
   [verifyToken],
