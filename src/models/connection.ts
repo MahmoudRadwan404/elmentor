@@ -9,7 +9,7 @@ const mongoUrl = process.env.url ? process.env.url : "";
 const client = new MongoClient(mongoUrl);
 
 // Database Name
-const dbName = "admin";
+const dbName = "elmentor";
 // Use connect method to connect to the server
 export async function connection() {
   await client.connect();

@@ -11,6 +11,7 @@ export async function listStudent(request: Request, response: Response) {
     const student = await studentsCollection.findOne({
       _id: new ObjectId(studentId),
     });
+    delete student?.password;
     response.status(200).send({ student });
   } catch (err) {
     console.log("Error from list-student controller");

@@ -12,7 +12,7 @@ export async function listMentors(request: Request, response: Response) {
     const limit = 10;
     const skip = (page - 1) * limit;
     const mentors = await mentorsCollection
-      .find({ mentor: true })
+      .find({ mentor: true }, { projection: { password: false } })
       .limit(limit)
       .skip(skip)
       .toArray();

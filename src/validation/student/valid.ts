@@ -40,6 +40,7 @@ export default async function valid(request: any) {
     baseName = null;
     myPath = null;
   }
+  console.log(baseName)
 
   if (!email.match(validRegex)) {
     return "Please enter a valid email";

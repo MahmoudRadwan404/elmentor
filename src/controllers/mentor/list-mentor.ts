@@ -11,6 +11,7 @@ export async function listMentor(request: Request, response: Response) {
     const mentor = await mentorCollection.findOne({
       _id: new ObjectId(mentorId),
     });
+    delete mentor?.password;
     response.status(200).send({ mentor });
   } catch (err) {
     console.log("Error from list-mentor controller");
