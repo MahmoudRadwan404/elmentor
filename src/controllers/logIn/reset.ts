@@ -15,15 +15,15 @@ export default async function reset(request: Request, res: Response) {
   const user = await usersCollection.findOne({ code: code });
 
   if (!user) {
-    return res.status(404).send({ error: "email not found" });
+    return res.status(404).send({ error: "code not found" });
   }
   
   const newPassword = await hash(password);
   await usersCollection.updateOne(
-    { email: user.email },
+    { code: code },
     { $set: { password: newPassword } }
   );
-  await usersCollection.updateOne({ email: user.email }, { $unset: { code: code } });
+  await usersCollection.updateOne({ code: code }, { $unset: { code: code } });
 
   res.status(200).send({ message: "success" });
 }
